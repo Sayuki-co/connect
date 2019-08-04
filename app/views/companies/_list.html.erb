@@ -1,0 +1,34 @@
+<% @companies.each do |company| %>
+<div class="row border-line">
+
+  <div class="col-12 col-md-4">
+    <% if company.image? %>
+        <p><%= image_tag company.image.thumb.url, class: 'company_img' %></p>
+    <% else %>
+        <p><%= image_tag 'company_show/sample_img.jpg', class:'company_img' %></p>
+    <% end %>
+    </div>
+    <div class="col-12 col-md-8">
+      <%= link_to(company) do %>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>企業名</p>
+<p><%= company.name %></p>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>職種</p>
+<%= company.occupation %></p>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>会社概要</p>
+<p><%= company.outline %></p>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>地域</p>
+<p><%= company.area %></p>
+
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>こんな事しています</p>
+<p><%= company.introduce %></p>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>こんなことをしたいです</p>
+<p><%= company.hope %></p>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>こんな企業を探しています</p>
+<p><%= company.want %>
+<p><%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>メッセージ</p>
+<p><%= company.message %></p>
+</div>
+<% end %>
+</div>
+
+<% end %>

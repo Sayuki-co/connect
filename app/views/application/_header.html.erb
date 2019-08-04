@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+  <%= link_to board_index_path, class: 'navbar-brand top-text' do %>
+    <%= image_tag 'title_img.png', class: 'd-block w-100' %>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav text-right text-secondary">
+      <% if @current_user %>
+         <p>
+           <%= image_tag 'company_index/header.png' ,class: 'company_index_header' %>
+           <%= link_to 'マイページ', user_path(@current_user), class: "text-secondary" %>
+           <span>&nbsp;|&nbsp;</span>
+           <%= image_tag 'company_index/header.png' ,class: 'company_index_header' %>
+           <%= link_to 'ログアウト', logout_path,class: "text-secondary", method: :delete  %>
+         </p>
+      <% else %>
+        <%= image_tag 'company_index/header.png' ,class: 'company_index_header' %>
+        <%= link_to '登録', new_user_path, class: "text-secondary" %>
+        <span>&nbsp;|&nbsp;</span>
+        <%= image_tag 'company_index/header.png' ,class: 'company_index_header' %>
+        <%= link_to 'ログイン', home_index_path, class: "text-secondary" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

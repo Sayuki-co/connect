@@ -1,0 +1,22 @@
+<p class="my-1">◆目的をセレクトして表示</p>
+<%= button_to '今あるのもを活かそう！', {controller: 'companies', action: 'select'}, {method: :get, class: "btn btn-sm index-occupation", params: {occupation: 'stay'}} %>
+<%= button_to 'これから作り出そう！', {controller: 'companies', action: 'select'}, {method: :get, class: "btn btn-sm index-occupation", params: {occupation: 'create'}} %>
+<%= button_to '現状を知って未来を作る！', {controller: 'companies', action: 'select'}, {method: :get, class: "btn btn-sm index-occupation", params: {occupation: 'future'}} %>
+<%= button_to 'その他', {controller: 'companies', action: 'select'}, {method: :get, class: "btn  btn-sm index-occupation", params: {occupation: 'etc'}} %>
+<div class="clear"></div>
+
+<p class="my-1">◆地域をセレクトして表示</p>
+          <%= button_to '北海道・東北', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '北海道・東北'}} %>
+          <%= button_to '関東', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '関東'}} %>
+          <%= button_to '北陸・甲信越', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '北陸・甲信越'}} %>
+          <%= button_to '東海', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '東海'}} %>
+          <%= button_to '関西', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '関西'}} %>
+          <%= button_to '中国', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '中国'}} %>
+          <%= button_to '四国', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '四国'}} %>
+          <%= button_to '九州・沖縄', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '九州・沖縄'}} %>
+          <%= button_to '海外', {controller: 'companies', action: 'search'}, {method: :get, class: "btn btn-secondary btn-sm area", params: {area: '海外'}} %>
+          <div class="clear"></div>
+
+<%= render partial: 'list', locals: { company: @company } %>
+
+<%= paginate @companies %>

@@ -1,0 +1,16 @@
+<p class="edit_subtitle"><%= image_tag 'company_new/member.png' ,class: 'member_img' %>メンバー紹介</p>
+<div class="members row">
+    <% @members.each do |member| %>
+        <div class="col-6">
+          <p><%= member.name %></p>
+          <% if member.image? %>
+              <%= image_tag member.image.url, class: 'face_img' %>
+          <% else %>
+              <%= image_tag 'company_show/face_img.png', class: 'face_img' %>
+          <% end %>
+          <div class="balloon">
+            <p><%= member.message %></p>
+          </div>
+        </div>
+    <% end %>
+</div>

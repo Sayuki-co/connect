@@ -1,0 +1,9 @@
+<% if Like.find_by(user_id: @current_user, company_id: company.id) %>
+  <%= link_to("/likes/#{company.id}/destroy", {method: "post"}) do %>
+     <span class="badge like">検討中</span>
+  <% end %>
+<% else %>
+  <%= link_to("/likes/#{company.id}/create", {method: "company"}) do %>
+    <span class="badge badge-secondary">気になるリストへ登録</span>
+  <% end %>
+<% end %>

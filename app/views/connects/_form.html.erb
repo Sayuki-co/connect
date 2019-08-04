@@ -1,0 +1,9 @@
+<%= form_for @connect do |f| %>
+<%= f.hidden_field :company_user_id, :value => company.user_id %>
+<%= f.hidden_field :user_id, :value => @current_user.id %>
+<%= f.fields_for :comments do |comment| %>
+<%= render 'connects/comment_fields', f: comment %>
+<% end %>
+
+<%= f.submit 'メッセージを送る', class: 'btn btn-default connect-btn' %>
+<% end %>

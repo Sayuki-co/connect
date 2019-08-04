@@ -1,0 +1,18 @@
+<div class="message">
+  <div class="kaiwa">
+    <% if message.user == @current_user %>
+      <% position = 'right' %>
+    <% else %>
+      <% position = 'left' %>
+    <% end %>
+    <figure class="kaiwa-img-<%= position %>">
+      <%= image_tag 'default.jpg' %>
+      <figcaption class="kaiwa-img-description">
+        <%= message.user.email %>
+      </figcaption>
+    </figure>
+    <div class="kaiwa-text-<%= position %>">
+      <%= simple_format(message.content) %>
+    </div>
+  </div>
+</div>

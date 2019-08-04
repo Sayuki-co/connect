@@ -1,0 +1,16 @@
+<div class="col-12 col-md-4">
+    <%= link_to(company) do %>
+        <div class="card">
+            <% if company.image? %>
+                <p><%= image_tag company.image.thumb.url, class: 'company_img' %></p>
+            <% else %>
+                <p><%= image_tag 'company_show/sample_img.jpg', class:'company_img' %></p>
+            <% end %>
+            <div class="card-body">
+                <h5 class="card-title"><%= company.name %></h5>
+                <p class="card-text"><%= company.user_id %></p>
+                <%= render partial: 'likes/like', locals:{company: company} %>
+            </div>
+        </div>
+    <% end %>
+</div>

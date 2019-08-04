@@ -1,0 +1,77 @@
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <%= image_tag 'company_index/top_1.png' ,class: 'd-block w-100' %>
+        </div>
+        <div class="carousel-item">
+            <%= image_tag 'company_index/top_2.png' ,class: 'd-block w-100' %>
+        </div>
+        <div class="carousel-item">
+            <%= link_to new_user_path do %>
+            <%= image_tag 'company_index/top_3.png' ,class: 'd-block w-100' %>
+            <% end %>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+<div class="mt-3 select">
+    <%= image_tag 'company_index/icon.png' ,class: 'icon_img' %>
+    <%= link_to company_select_path(:occupation => "stay") do %>
+        <div class="title"><b class="main-title">今あるものを活かそう！</b> <br>-良いサービスや商品でみんなを幸せにしたい方- </div>
+    <% end %>
+</div>
+<div class="target">
+    <p>□ 営業力には自信がある方</p>
+    <p>□ 営業力には自身はないが商品が気に入って世間に広めたいと思った方</p>
+    <p>□ 商品知識はないので販売先を紹介してくれる方</p>
+    <p>□ みんなの役に立つサービスや商品を持っている方</p>
+    <p>□ 商品には自信があるがどうやって販売していったらいいかわからない方</p>
+</div>
+<%= image_tag 'company_index/line.jpg' ,class: 'line_img' %>
+<div class="mt-3 select">
+    <%= image_tag 'company_index/icon.png' ,class: 'icon_img' %>
+    <%= link_to company_select_path(:occupation => "create") do %>
+    <div class="title"><b class="main-title">これから作り出そう！</b> <br> -未来のサービス、商品を作り出してみんなを幸せにしたい方- </div>
+<% end %>
+</div>
+<div class="target">
+    <p>□ いいアイディアはあるのにお金がない</p>
+    <p>□ 技術はないがアイディアはある方</p>
+    <p>□ 未来のために何かできないかと考えている方</p>
+    <p>□ かけている技術を補って欲しい方</p>
+</div>
+<%= image_tag 'company_index/line.jpg' ,class: 'line_img' %>
+<div class="mt-3 select">
+    <%= image_tag 'company_index/icon.png' ,class: 'icon_img' %>
+    <%= link_to company_select_path(:occupation => "future") do %>
+    <div class="title"><b class="main-title">現状を知って未来を作る！ </b> <br>-今の状態を把握して未来に役立てたい方 </div>
+    <% end %>
+</div>
+<div class="target">
+    <p>□ 研究はしているが立証するデータが欲しい方</p>
+    <p>□ 未来に今を困りごとを解消して欲しい方</p>
+    <p>□ 生の声を聞いて商品作りに生かしたい方</p>
+</div>
+<%= image_tag 'company_index/line.jpg' ,class: 'line_img' %>
+<div class="mt-3 select">
+    <%= image_tag 'company_index/icon.png' ,class: 'icon_img' %>
+    <%= link_to company_select_path(:occupation => "etc") do %>
+        <div class="title"><b class="main-title">その他</b></div>
+    <% end %>
+</div>
+<!-- <div class="target"></div> -->
+<%= image_tag 'company_index/line.jpg' ,class: 'line_img' %>
+<div class="clear"></div>
+<%= render partial: 'shared/card_company', locals: { company: @company } %>
+<br>
+<%= link_to '一覧へ', companies_path, class: 'btn btn-secondary btn-sm area' %>

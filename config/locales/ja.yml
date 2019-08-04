@@ -1,0 +1,27 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: ユーザー名
+        password: パスワード
+        password_confirmation: パスワード（確認）
+      company:
+        name: 名前
+        occupation: 職種
+        hope: 本文
+        image: 写真
+        outline: 会社概要
+        introduce: 紹介
+        want: こんな事がしたい
+        message: メッセージ
+        area: 地域
+      comment:
+        name: 名前
+        comment: コメント
+  views:
+    pagination:
+      first: 最初
+      last: 最後
+      previous: 前
+      next: 次
+      truncate: ...

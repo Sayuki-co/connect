@@ -1,0 +1,23 @@
+// Place all the styles related to the boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.talk-right {
+  border-radius: 4px;
+  padding: 8px;
+  background: #dcd6d2;
+  margin: 8px 0 8px 20px;
+}
+
+.talk-left {
+  border-radius: 4px;
+  padding: 8px;
+  background: #a4c1d7;
+  margin: 8px 20px 8px 0;
+}
+
+.connect-btn {
+  background: #e3d7a3;
+  font-size: 15px;
+  margin-top: 15px;
+}

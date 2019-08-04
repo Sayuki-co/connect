@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: connects
+#
+#  id              :integer          not null, primary key
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  company_user_id :integer
+#  user_id         :integer
+#
+# Indexes
+#
+#  index_connects_on_user_id_and_company_user_id  (user_id,company_user_id) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  company_user_id: 1
+  message: MyText
+
+two:
+  user: two
+  company_user_id: 1
+  message: MyText

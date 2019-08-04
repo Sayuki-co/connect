@@ -1,0 +1,71 @@
+<%= render 'shared/error_messages' %>
+<div class="row">
+  <div class="col-12 col-md-4">
+    <% if company.image? %>
+      <p><%= image_tag company.image.url, class: 'company_img' %></p>
+    <% else %>
+      <p><%= image_tag 'company_show/sample_img.jpg', class: 'company_img' %></p>
+    <% end %>
+    <div class="text-right">
+      <% if @current_user.present? %>
+        <%= render partial: 'likes/like', locals: { company: @company } %>
+        <% if @current_user.id != @company.user_id %>
+          <% if @connects.blank? %>
+            <button type="button" class="badge badge-secondary" data-toggle="modal" data-target="#myModal">
+              メッセージを送る
+            </button>
+            <!-- モーダルの設定 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><%= company.name %>さんへのメッセージ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render partial: 'connects/form', locals: {company: company} %>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+          <% else %>
+            <%= link_to connect_path(@connects) do %>
+            <%= image_tag 'company_show/talk_img.png', class: 'show_icon_img' %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-12 col-md-8">
+    <h4><%= image_tag 'company_show/show_icon.png', class: 'show_icon_img' %>
+    <%= company.name %></h4>
+    <span class="tag"><%= occupation(company.occupation) %></span>
+    <span class="tag"><%= company.area %></span>
+    <p class="list">
+      <%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>会社概要
+      <%= simple_format(company.outline) %>
+    </p>
+    <p class="list">
+      <%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>会社紹介
+      <%= simple_format(company.introduce) %>
+    </p>
+    <p class="list">
+      <%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>こんな事がしたい
+      <%= simple_format(company.want) %>
+    </p>
+    <p class="list">
+      <%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>未来像
+      <%= simple_format(company.hope) %>
+    </p>
+    <p class="list">
+      <%= image_tag 'job_show/icon.png' ,class: 'company_show_icon' %>メッセージ
+      <%= simple_format(company.message) %>
+    </p>
+    <% if @members.present? %>
+      <%= render partial: 'member', locals: { member: @member } %>
+    <% end %>
+  </div>
+</div>

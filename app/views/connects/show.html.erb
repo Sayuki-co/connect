@@ -1,8 +1,6 @@
 <%= render 'shared/error_messages' %>
-
 <p><%= @connect.user_id %></p>
 <p><%= @connect.company_user.id %></p>
-
 <% @comments.each do |comment| %>
 <% company = Company.find_by(id: comment.user_id) %>
   <% if @current_user.id == comment.user_id %>
@@ -19,18 +17,18 @@
       <div class="connect-show-comment"><%= comment.comment %></div>
     </div>
   <% else %>
-  <div class="text-left">
-    <% if company.image? %>
-      <%= image_tag company.image.url, class: 'company_show_img' %>
-    <% else %>
-      <%= image_tag 'company_show/sample_img.jpg', class: 'company_show_img' %>
-    <% end %>
-    <%= company.name %>
-  </div>
-  <div class="talk-left text-left">
-    <p><%= comment.created_at %></p>
-    <div class="connect-show-comment"><%= comment.comment %></div>
-  </div>
+    <div class="text-left">
+      <% if company.image? %>
+        <%= image_tag company.image.url, class: 'company_show_img' %>
+      <% else %>
+        <%= image_tag 'company_show/sample_img.jpg', class: 'company_show_img' %>
+      <% end %>
+      <%= company.name %>
+    </div>
+    <div class="talk-left text-left">
+      <p><%= comment.created_at %></p>
+      <div class="connect-show-comment"><%= comment.comment %></div>
+    </div>
   <% end %>
 <% end %>
 

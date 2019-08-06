@@ -1,8 +1,6 @@
 <div class="container">
-<div class="d-flex align-items-center">
-  <p class="edit_subtitle"><%= image_tag 'company_new/edit.png' ,class: 'member_img' %>Edit</p>
-
-</div>
-
-<%= render partial: 'form', locals: { company: @company } %>
+    <div class="d-flex align-items-center">
+      <p class="edit_subtitle"><%= image_tag 'company_new/edit.png' ,class: 'member_img' %>Edit</p>
+    </div>
+    <%= render partial: 'form', locals: { company: @company } %>
 </div>

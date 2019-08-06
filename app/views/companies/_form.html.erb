@@ -3,98 +3,94 @@
 <%= form_for company do |f| %>
   <%= f.hidden_field :user_id, :value => @current_user.id %>
 <!-- カテゴリー -->
-<span class="edit_subtitle">カテゴリー：</span>
+  <span class="edit_subtitle">カテゴリー：</span>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">➕</label>
+      </div>
+      <%= f.select :occupation, [["今あるものを活かす！", "stay"], ["これから作り出す！", "create"], ["現状を知って未来を作る！", "future"], ["その他", "etc"]], class: 'custom-select inputGroupSelect01' %>
+  </div>
+
+  <!-- 地域 -->
+  <span class="edit_subtitle">地域：</span>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <label class="input-group-text" for="inputGroupSelect01">➕</label>
     </div>
-    <%= f.select :occupation, [["今あるものを活かす！", "stay"], ["これから作り出す！", "create"], ["現状を知って未来を作る！", "future"], ["その他", "etc"]], class: 'custom-select inputGroupSelect01' %>
+    <%= f.select :area, [["北海道・東北", "北海道・東北"], ["関東", "関東"], ["北陸・甲信越", "北陸・甲信越"], ["東海", "東海"], ["関西", "関西"], ["中国", "中国"], ["四国", "四国"], ["九州・沖縄", "九州・沖縄"], ["海外", "海外"]], class: 'form-control' %>
   </div>
 
-<!-- 地域 -->
-<span class="edit_subtitle">地域：</span>
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" for="inputGroupSelect01">➕</label>
-  </div>
-  <%= f.select :area, [["北海道・東北", "北海道・東北"], ["関東", "関東"], ["北陸・甲信越", "北陸・甲信越"], ["東海", "東海"], ["関西", "関西"], ["中国", "中国"], ["四国", "四国"], ["九州・沖縄", "九州・沖縄"], ["海外", "海外"]], class: 'form-control' %>
-</div>
-
-<!-- 写真 -->
-<span class="edit_subtitle">写真：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-<%= f.file_field :image, class: 'form-control' %>
-</div>
-
-<!-- 社名   -->
-<span class="edit_subtitle">社名：</span>
+  <!-- 写真 -->
+  <span class="edit_subtitle">写真：</span>
   <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-  </div>
-  <%= f.text_field :name, class: 'form-control' %>
-</div>
-
-<!-- 会社概要 -->
-<span class="edit_subtitle">会社概要：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-  <%= f.text_field :outline, class: 'form-control' %>
-</div>
-
-<!-- 希望 -->
-<span class="edit_subtitle">未来像：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-<%= f.text_field :hope, class: 'form-control' %>
-</div>
-
-<span class="edit_subtitle">紹介：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-  <%= f.text_field :introduce, class: 'form-control' %>
-</div>
-
-<span class="edit_subtitle">こんなことがしたい：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-  <%= f.text_field :want, class: 'form-control' %>
-</div>
-
-<span class="edit_subtitle">メッセージ：</span>
-<div class="input-group mb-3">
-<div class="input-group-prepend">
-  <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
-</div>
-  <%= f.text_field :message, class: 'form-control' %>
-</div>
-
-
-<p class="edit_subtitle"><%= image_tag 'company_new/member.png' ,class: 'member_img' %>メンバー紹介</p>
-  <div class="members">
-
-    <%= f.fields_for :members do |member| %>
-      <%= render 'member_fields', f: member %>
-    <% end %>
-    <div class="links add">
-
-    <%= link_to_add_association f, :members do %>
-    <%= image_tag 'company_new/add.png' ,class: 'add_img' %>
-    <% end %>
-
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
     </div>
-<div class="clear"></div>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <!-- 社名   -->
+  <span class="edit_subtitle">社名：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <!-- 会社概要 -->
+  <span class="edit_subtitle">会社概要：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :outline, class: 'form-control' %>
+  </div>
+
+  <!-- 希望 -->
+  <span class="edit_subtitle">未来像：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :hope, class: 'form-control' %>
+  </div>
+
+  <span class="edit_subtitle">紹介：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :introduce, class: 'form-control' %>
+  </div>
+
+  <span class="edit_subtitle">こんなことがしたい：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :want, class: 'form-control' %>
+  </div>
+
+  <span class="edit_subtitle">メッセージ：</span>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">➕</span>
+    </div>
+    <%= f.text_field :message, class: 'form-control' %>
+  </div>
+
+  <p class="edit_subtitle"><%= image_tag 'company_new/member.png' ,class: 'member_img' %>メンバー紹介</p>
+  <div class="members">
+      <%= f.fields_for :members do |member| %>
+        <%= render 'member_fields', f: member %>
+      <% end %>
+      <div class="links add">
+        <%= link_to_add_association f, :members do %>
+        <%= image_tag 'company_new/add.png' ,class: 'add_img' %>
+        <% end %>
+      </div>
+      <div class="clear"></div>
   </div>
   <%= f.submit '保存', class: 'btn btn-secondary' %>
 <% end %>

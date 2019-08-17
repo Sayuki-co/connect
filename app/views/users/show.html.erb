@@ -7,14 +7,14 @@
   <% end %>
   <div class="clear"></div>
   <ul class="nav nav-tabs">
-      <li class="active"><a href="#like" data-toggle="tab">お気に入り</a></li>
-      <li><a href="#talk" data-toggle="tab">コンタクト</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#like" data-toggle="tab">気になるリスト</a></li>
+      <li class="nav-item"><a class="nav-link" href="#talk" data-toggle="tab">コンタクト</a></li>
   </ul>
   <div class="tab-content">
       <div class="tab-pane active" id="like">
           <% unless @likes.nil? %>
-              <p><%= image_tag 'user_show/like.png', class:'like_img' %>気になるリスト</p>
               <% @likes.each do |like| %>
+                <div class="user_show_like">
                   <% company = Company.find(like.company_id) %>
                   <div class="row company_line">
                       <div class="col-5">
@@ -31,13 +31,27 @@
                           <% end %>
                       </div>
                   </div>
+                </div>
               <% end %>
           <% else %>
               <p><%= image_tag 'user_show/like.png', class:'like_img' %>気になる登録はありません</p>
           <% end %>
       </div>
       <div class="tab-pane" id="talk">
-          <p>茨城県・栃木県・群馬県・埼玉県・千葉県・東京都・神奈川県</p>
+          <% @connects.each do |connect| %>
+
+            <% users = User.where(id: [connect.user_id, connect.company_user_id]) %>
+            <% users.each do |user| %>
+              <% if user.id != @current_user.id %>
+              <div class="user-show-contact">
+                <%= link_to(connect_path(connect.id)) do %>
+                  <p><%= image_tag 'user_show/mail.png', class:'like_img' %><%= user.company.name %></p>
+                  </div>
+                <% end %>
+
+              <% end %>
+            <% end %>
+          <% end %>
       </div>
   </div>
   <%= link_to 'チャット', rooms_path %>

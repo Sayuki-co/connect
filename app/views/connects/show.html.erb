@@ -1,8 +1,6 @@
 <%= render 'shared/error_messages' %>
-<p><%= @connect.user_id %></p>
-<p><%= @connect.company_user.id %></p>
 <% @comments.each do |comment| %>
-<% company = Company.find_by(id: comment.user_id) %>
+<% company = Company.find_by(user_id: comment.user_id) %>
   <% if @current_user.id == comment.user_id %>
     <div class="text-right">
       <% if company.image? %>

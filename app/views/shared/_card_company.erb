@@ -11,10 +11,10 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= company.name %></h5>
                         <p class="card-text"><%= company.user_id %></p>
-                        <%= render partial: 'likes/like', locals:{company: company} %>
+                        <%= render partial: 'likes/like', locals: {company: company} %>
                     </div>
                 </div>
             <% end %>
         </div>
-    <% end %>  
+    <% end %>
 </div>
